@@ -1,0 +1,5 @@
+dist
+node_modules
+public/photos
+# Gerado por `npm run photos` — o script escreve o próprio formato.
+src/lib/photos-local.ts

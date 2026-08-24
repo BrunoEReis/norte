@@ -1,0 +1,4 @@
+# Rotas do lado do cliente: qualquer caminho serve o index.html.
+# Sem isso, abrir /demo/imobiliaria direto (ou dar F5 numa demo) retorna 404.
+# Funciona no Cloudflare Pages e no Netlify.
+/*  /index.html  200

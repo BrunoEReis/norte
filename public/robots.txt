@@ -1,0 +1,5 @@
+# Coleção demonstrativa com marcas, CNPJs e registros profissionais fictícios.
+# Fora do índice de busca de propósito: ninguém deve encontrar a "Clínica
+# Aurora" no Google achando que ela existe.
+User-agent: *
+Disallow: /

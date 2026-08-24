@@ -1,0 +1,18 @@
+node_modules
+dist
+.vite
+.wrangler
+*.local
+.DS_Store
+
+# As skills de projeto em .claude/ são versionadas de propósito — senão ficam
+# só na máquina de quem as escreveu.
+
+# As fotos (~22 MB) são baixadas com `npm run photos` e têm fallback para o CDN.
+# Fora do repositório o clone fica leve e não redistribuímos o acervo do Unsplash.
+public/photos
+src/lib/photos-local.ts
+
+# Estado interno: traz a pesquisa de preço e o posicionamento comercial.
+# Fica na máquina, não no repositório público.
+HANDOFF.md
