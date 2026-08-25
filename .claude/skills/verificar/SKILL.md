@@ -20,6 +20,11 @@ npm run typecheck && npm run build && npm run contraste && npm run format:check
 (`service worker: versão <hash>, N arquivos no precache`), e o Prettier dizendo que está tudo
 formatado.
 
+Desde 25/08/2026 esses quatro passos também rodam no GitHub Actions
+(`.github/workflows/verificar.yml`), em todo push na `main` e em todo PR. O ciclo local continua
+valendo — o CI é a rede para quando ninguém rodar. Foi criado porque o `format:check` estava
+vermelho na `main` sem ninguém ver.
+
 Se o build passou mas a linha do service worker não apareceu, o `scripts/build-sw.mjs` não
 rodou — o offline vai quebrar em produção sem avisar.
 

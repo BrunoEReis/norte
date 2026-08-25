@@ -632,7 +632,10 @@ export default function Showcase() {
         <Container size="full">
           <div className="flex flex-col gap-3 text-[0.82rem] text-ink-3 sm:flex-row sm:items-center sm:justify-between">
             <p>Norte — coleção de landing pages demonstrativas, 2026.</p>
-            <p>Marcas, textos, números e depoimentos são fictícios. Fotografia: Unsplash.</p>
+            <p>
+              Marcas, textos, números e depoimentos das demonstrações são fictícios. Os preços são reais.
+              Fotografia: Unsplash.
+            </p>
           </div>
         </Container>
       </footer>

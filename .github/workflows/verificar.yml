@@ -1,0 +1,30 @@
+# O "ciclo padrão" da skill /verificar, rodando sozinho.
+#
+# Por que existe: a skill manda rodar `typecheck && build && contraste &&
+# format:check` e diz que o esperado é tudo verde. Em 25/08/2026 o
+# `format:check` estava vermelho na `main` havia tempo indeterminado, e
+# ninguém viu — porque nada rodava sem alguém lembrar.
+#
+# O contraste é o passo que mais importa aqui: é a única régua de
+# acessibilidade do projeto, e o README a anuncia publicamente.
+name: verificar
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+      - run: npm run contraste
+      - run: npm run format:check

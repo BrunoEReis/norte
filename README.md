@@ -16,7 +16,7 @@ project exists to show design range and front-end engineering, not to impersonat
 
 **Ten identities, zero literal colors in components.** Each demo is a `[data-theme]` block of
 CSS custom properties, not a set of bespoke components. Adding an eleventh identity means writing
-a token block — never a new component variant. Tokens are named by *role*
+a token block — never a new component variant. Tokens are named by _role_
 (`--c-ink-2`, `--c-line`, `--c-accent`), so a component never knows which theme it is rendering in.
 
 **Contrast is measured, not estimated — and it gates the build.**
@@ -53,32 +53,32 @@ npm install
 npm run dev        # http://localhost:5273
 ```
 
-| Script | What it does |
-|---|---|
-| `npm run dev` | development server |
-| `npm run build` | typecheck + production build + service-worker asset list |
-| `npm run typecheck` | types only |
-| `npm run contraste` | measures every token pair in every theme against WCAG AA |
-| `npm run photos` | downloads the photos to `public/photos` (~22 MB, webp, two widths) |
+| Script              | What it does                                                       |
+| ------------------- | ------------------------------------------------------------------ |
+| `npm run dev`       | development server                                                 |
+| `npm run build`     | typecheck + production build + service-worker asset list           |
+| `npm run typecheck` | types only                                                         |
+| `npm run contraste` | measures every token pair in every theme against WCAG AA           |
+| `npm run photos`    | downloads the photos to `public/photos` (~22 MB, webp, two widths) |
 
 Photos are **not committed**. The app serves them locally when present and falls back to the
 origin CDN when they are not, so the project runs without ever fetching them.
 
 ## Routes
 
-| Route | Demo | Visual direction |
-|---|---|---|
-| `/` | Showcase | Dark editorial, amber |
-| `/demo/saas-ai` | AI operations platform | Dark premium, bento grid, product UI in CSS |
-| `/demo/agencia` | Brand studio | Paper editorial, display serif, electric blue |
-| `/demo/clinica` | Integrative medicine clinic | Clean, deep green, form above the fold |
-| `/demo/imobiliaria` | High-end real estate | Dark luxury, gold, full-bleed photography |
-| `/demo/ecommerce` | Coffee subscription | Warm, large product, direct comparison |
-| `/demo/consultoria` | Management consultancy | Corporate, navy + gold, audited numbers |
-| `/demo/adega` | Wine shop with own delivery | Nocturnal, cyan neon, delivery zone map |
-| `/demo/barbearia` | Barbershop and club | Leather and brass, condensed, booking |
-| `/demo/hamburgueria` | Burger restaurant | Embers, appetite, tabbed menu |
-| `/demo/petshop` | Pet shop and vet clinic | Light and warm, coral + teal |
+| Route                | Demo                        | Visual direction                              |
+| -------------------- | --------------------------- | --------------------------------------------- |
+| `/`                  | Showcase                    | Dark editorial, amber                         |
+| `/demo/saas-ai`      | AI operations platform      | Dark premium, bento grid, product UI in CSS   |
+| `/demo/agencia`      | Brand studio                | Paper editorial, display serif, electric blue |
+| `/demo/clinica`      | Integrative medicine clinic | Clean, deep green, form above the fold        |
+| `/demo/imobiliaria`  | High-end real estate        | Dark luxury, gold, full-bleed photography     |
+| `/demo/ecommerce`    | Coffee subscription         | Warm, large product, direct comparison        |
+| `/demo/consultoria`  | Management consultancy      | Corporate, navy + gold, audited numbers       |
+| `/demo/adega`        | Wine shop with own delivery | Nocturnal, cyan neon, delivery zone map       |
+| `/demo/barbearia`    | Barbershop and club         | Leather and brass, condensed, booking         |
+| `/demo/hamburgueria` | Burger restaurant           | Embers, appetite, tabbed menu                 |
+| `/demo/petshop`      | Pet shop and vet clinic     | Light and warm, coral + teal                  |
 
 ## Architecture
 
