@@ -33,7 +33,11 @@ export const PACOTES: Plan[] = [
     unit: 'projeto',
     cta: 'Pedir orçamento',
     highlight: true,
-    badge: 'Mais escolhido',
+    // "Mais escolhido" estava aqui e foi trocado em 25/08/2026: e uma afirmacao
+    // sobre historico de vendas, e ainda nao houve venda nenhuma. O arquivo diz
+    // no topo que este conteudo NAO e ficticio -- entao ele nao pode inventar.
+    // "Recomendado" cumpre a mesma funcao de guiar a escolha e e verdade.
+    badge: 'Recomendado',
     features: [
       'Tudo do Essencial',
       'Cor, tipografia e fotografia escolhidas para a sua marca',
