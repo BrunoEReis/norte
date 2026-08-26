@@ -1,0 +1,22 @@
+# Por que este arquivo existe (26/08/2026)
+#
+# `core.autocrlf=true` nesta maquina entregava CRLF ao Prettier, que espera
+# LF. Resultado: `npm run format:check` ficava VERMELHO no Windows e VERDE no
+# CI (Linux) para os mesmos arquivos -- e a skill /verificar promete verde.
+#
+# Vermelho que nao da para consertar ensina a ignorar vermelho, que e
+# exatamente o que deixou o format:check quebrado na main ate 25/08.
+#
+# `eol=lf` faz a copia de trabalho nascer com LF, igual ao que esta no git e
+# igual ao que o CI le. Uma verdade so, nos dois lugares.
+* text=auto eol=lf
+
+# Binarios: o git nao deve tentar converter nada aqui.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.woff binary
+*.woff2 binary

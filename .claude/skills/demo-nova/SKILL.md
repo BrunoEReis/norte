@@ -13,9 +13,12 @@ de componente para "ficar diferente", pare: provavelmente devia estar mexendo em
 
 ### 1. Decidir a identidade antes de escrever código
 
-Escolha o par tipográfico, a paleta e o raio. As seis existentes cobrem: dark tech, editorial em
-papel, clean claro, luxo escuro, warm claro e corporativo. **Uma sétima que repete uma dessas
-não vende nada** — o valor da coleção é a variedade.
+Escolha o par tipográfico, a paleta e o raio. **As dez existentes já cobrem** dark tech
+(`saas-ai`), editorial em papel (`agencia`), clean claro (`clinica`), luxo escuro
+(`imobiliaria`), warm claro (`ecommerce`), corporativo (`consultoria`), noturno de vinho
+(`adega`), oficina masculina (`barbearia`), apetite quente (`hamburgueria`) e afetivo claro
+(`petshop`). **Uma décima primeira que repete uma dessas não vende nada** — o valor da coleção
+é a variedade.
 
 Fonte nova precisa entrar no `<link>` do Google Fonts em `index.html`. Confira que a URL volta
 200 com a família nova antes de seguir; eixo errado numa fonte variável derruba o pedido inteiro
@@ -74,8 +77,11 @@ Se precisar de um bloco só dessa demo, ele vai em `src/demos/<slug>/ui.tsx`, n�
 
 ## Antes de dizer que acabou
 
-- `/verificar` com a rota nova incluída na varredura (são 8 agora, não 7).
+- `/verificar` com a rota nova incluída na varredura (hoje são 11 rotas: 10 demos + o showcase).
 - Conferir em 390px.
 - `npm run photos` se entraram fotos novas.
-- Atualizar a contagem em [README.md](../../../README.md) e no texto do showcase — há "seis"
-  escrito em prosa em alguns lugares (título do hero, `description` do manifesto, README).
+- Atualizar a contagem em [README.md](../../../README.md), no [CLAUDE.md](../../../CLAUDE.md) e
+  no texto do showcase — a quantidade está escrita **em prosa** no título do hero
+  (`Showcase.tsx`: "Coleção 2026 · dez demos", "Dez páginas.", "Dez mundos diferentes."), na
+  `description` do manifesto, no README e na linha de abertura do CLAUDE.md. Nenhum desses
+  números é calculado a partir de `demos.ts`: todos apodrecem sozinhos.
