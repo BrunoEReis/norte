@@ -5,7 +5,7 @@
 > quebrou de verdade neste projeto, e a causa está anotada junto.
 > Mantenha enxuto: um arquivo inchado dilui a atenção do modelo.
 
-Projeto: **coleção de seis landing pages demonstrativas** para apresentar a clientes.
+Projeto: **coleção de dez landing pages demonstrativas** para apresentar a clientes.
 Site estático, sem backend, sem autenticação, sem banco. Marcas, textos, preços e depoimentos
 são **fictícios** de propósito.
 
@@ -172,7 +172,7 @@ sobe com `<span className="relative z-10">`. Nunca `-z-*` num filho de botão.
 - [ ] Se mexeu em componente compartilhado: mudança por prop, não por `className` competindo.
 - [ ] Animação nova respeita `prefers-reduced-motion` e o gatilho intersecta de verdade.
 - [ ] Foto nova foi vista antes de entrar; `npm run photos` rodado; `alt` escrito.
-- [ ] As 7 rotas abrem sem erro de console, sem imagem quebrada e sem overflow horizontal
+- [ ] As 11 rotas abrem sem erro de console, sem imagem quebrada e sem overflow horizontal
       (`/verificar` faz isso).
 - [ ] Testado em 390px, não só no desktop.
 - [ ] Conteúdo novo deixa claro que é demonstração onde caberia confusão.
