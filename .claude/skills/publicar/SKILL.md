@@ -17,13 +17,38 @@ o upload e o site fica no ar errado.
 
 ```bash
 npm run build
-npx wrangler pages deploy dist --project-name=norte
+npx wrangler pages deploy dist --project-name=norte --branch=production
 ```
 
 O `--project-name` é **`norte`**. O domínio saiu `norte-dde.pages.dev` porque `norte` já estava
 tomado como subdomínio — os dois nomes não batem e isso é normal.
 
 Na primeira vez numa máquina o Wrangler abre o navegador para login OAuth na Cloudflare.
+
+> ### ⚠️ O `--branch=production` não é opcional, e passou a ser necessário em 25/08/2026
+>
+> **A branch de produção deste projeto no Cloudflare chama `production`, e o repositório local
+> chama `main`.** Sem a bandeira, o Wrangler infere a branch do git, vê `main`, e publica um
+> **deploy de preview** — que sobe, responde 200, e **não troca nada em `norte-dde.pages.dev`**.
+>
+> Isso funcionava antes porque o norte **não era um repositório git**: sem contexto de git, o
+> Wrangler usava `production` por padrão. No dia em que o projeto foi para o GitHub, este comando
+> silenciosamente parou de publicar — sem erro nenhum.
+>
+> **Como o erro se parece:** o deploy diz `Success`, imprime uma URL com hash que mostra a versão
+> nova, e o site continua velho. Aconteceu em 27/08/2026.
+>
+> **Como conferir em dez segundos**, comparando o bundle local com o que está no ar:
+>
+> ```bash
+> grep -o '/assets/index-[A-Za-z0-9_-]*\.js' dist/index.html
+> curl -s https://norte-dde.pages.dev/ | grep -o '/assets/index-[A-Za-z0-9_-]*\.js'
+> ```
+>
+> Os dois têm que dar o **mesmo hash**. Se diferirem, foi para preview.
+>
+> E `npx wrangler pages deployment list --project-name=norte` mostra a coluna `Environment`:
+> o que vale é a linha `Production`.
 
 ## Qual link mandar
 
