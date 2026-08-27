@@ -116,12 +116,22 @@ export function Pricing({
                 {plan.price === 'sob-consulta' ? (
                   <p className="font-display text-[2rem] leading-none text-ink">Sob consulta</p>
                 ) : (
-                  <p className="flex items-baseline gap-1.5">
-                    <span className="font-display text-[clamp(2.2rem,4vw,2.8rem)] leading-none tabular-nums text-ink">
-                      {brl(Array.isArray(plan.price) ? plan.price[cycle] : plan.price)}
-                    </span>
-                    <span className="text-[0.88rem] text-ink-3">{plan.unit ?? '/mês'}</span>
-                  </p>
+                  <>
+                    <p className="flex items-baseline gap-1.5">
+                      <span className="font-display text-[clamp(2.2rem,4vw,2.8rem)] leading-none tabular-nums text-ink">
+                        {brl(Array.isArray(plan.price) ? plan.price[cycle] : plan.price)}
+                      </span>
+                      <span className="text-[0.88rem] text-ink-3">{plan.unit ?? '/mês'}</span>
+                    </p>
+                    {/* Preço fechado convivendo com o alternador precisa dizer que
+                        não acompanha, senão quem troca o ciclo vê o número parado e
+                        conclui que o alternador quebrou. No celular os cards empilham
+                        e o primeiro ocupa a tela — se ele for o fixo, o alternador
+                        parece morto. Foi o que aconteceu na clínica. */}
+                    {cycles !== false && typeof plan.price === 'number' && (
+                      <p className="mt-1.5 text-[0.82rem] text-ink-3">não muda com o ciclo</p>
+                    )}
+                  </>
                 )}
               </div>
 

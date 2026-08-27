@@ -140,11 +140,36 @@ const DEPOIMENTOS = [
   },
 ]
 
+/**
+ * A "próxima agenda" do hero é calculada, nunca escrita à mão.
+ *
+ * Estava fixa em "Quinta, 21/08" e apodreceu duas vezes ao mesmo tempo: em
+ * 27/08/2026 a data já era de seis dias antes, e 21/08/2026 caiu numa sexta,
+ * não numa quinta. Uma página que anuncia disponibilidade no passado, com o dia
+ * da semana errado, é pior que uma sem agenda nenhuma — e é o primeiro bloco
+ * que o visitante lê.
+ *
+ * Dois dias à frente para parecer agenda real, e nunca no fim de semana, porque
+ * a clínica do demo não abre sábado nem domingo.
+ */
+function proximaAgenda(hoje = new Date()) {
+  const DIAS = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
+  const d = new Date(hoje)
+  d.setDate(d.getDate() + 2)
+  while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1)
+  const dia = String(d.getDate()).padStart(2, '0')
+  const mes = String(d.getMonth() + 1).padStart(2, '0')
+  return `${DIAS[d.getDay()]}, ${dia}/${mes}`
+}
+
 const PLANOS = [
   {
     name: 'Avaliação inicial',
     description: 'A porta de entrada. Sem compromisso de continuidade.',
-    price: [1290, 1290] as [number, number],
+    // Valor fechado, nao recorrencia: o tipo do Pricing aceita numero unico
+    // justamente para isso, e e o que faz o card avisar que nao acompanha o
+    // alternador de ciclo.
+    price: 1290,
     unit: 'à vista',
     features: [
       'Consulta de 90 minutos com três especialistas',
@@ -349,7 +374,7 @@ export default function Clinica() {
               />
               <div className="absolute -bottom-6 left-4 right-4 rounded-card border border-line bg-surface p-5 shadow-lift sm:left-auto sm:right-6 sm:w-64">
                 <p className="text-[0.78rem] uppercase tracking-[0.14em] text-ink-3">Próxima agenda</p>
-                <p className="mt-2 font-display text-[1.35rem] text-ink">Quinta, 21/08</p>
+                <p className="mt-2 font-display text-[1.35rem] text-ink">{proximaAgenda()}</p>
                 <p className="mt-1 text-[0.88rem] text-ink-2">4 horários disponíveis</p>
               </div>
             </Reveal>
